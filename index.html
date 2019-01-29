@@ -184,10 +184,9 @@
 <script>
   const videotimesList = Array.from(document.querySelectorAll("[data-time]"))
 
-  function doThis (time) {
+  function parseToSeconds (time) {
     const [min, secs] = time.split(":").map(parseFloat)
     const thing = Math.floor(parseInt(min) * 60) + parseInt(secs)
-    console.log(thing)
     return thing
   }
 
@@ -197,18 +196,14 @@
     secondsLeft = secondsLeft % 3600
     const minutes = Math.floor(secondsLeft / 60)
     secondsLeft = secondsLeft % 60
-    console.log(hours, minutes, secondsLeft)
+    return `${hours} hours, ${minutes} minutes, ${secondsLeft} seconds`
   }
 
   const totalTime = videotimesList.reduce((accumulator, currentValue) => {
-    return accumulator + doThis(currentValue.dataset.time)
+    return accumulator + doparseToSecondsThis(currentValue.dataset.time)
   }, 0) 
 
   const endResult = makeTime(totalTime)
-  //add up the total number of minutes and seconds and hours of all the videos
-  //convert data-time into minutes and seconds
-  //use reduce
-  //use map and reduce
 </script>
 </body>
 </html>
