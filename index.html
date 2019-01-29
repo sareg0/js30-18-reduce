@@ -200,7 +200,7 @@
   }
 
   const totalTime = videotimesList.reduce((accumulator, currentValue) => {
-    return accumulator + doparseToSecondsThis(currentValue.dataset.time)
+    return accumulator + parseToSeconds(currentValue.dataset.time)
   }, 0) 
 
   const endResult = makeTime(totalTime)
