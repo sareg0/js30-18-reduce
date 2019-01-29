@@ -183,18 +183,14 @@
   </ul>
 <script>
   const videotimesList = Array.from(document.querySelectorAll("[data-time]"))
-  // const regex = new RegExp(/ˆ(a |the |an )/i)
-  const minutes = new RegExp(/([^:]+)/)
-  const seconds = new RegExp(/:(.*)/)
-
+  
   function doThis (time) {
-    if (time) {
-      let min = time.match(minutes)[1]
-      let sec = time.match(seconds)[1]
-      const thing = Math.floor(parseInt(min) * 60) + parseInt(sec)
-      // console.log(thing)
-      return thing
-    }
+    let timeArray = time.split(":")
+    let min = timeArray[0]
+    let sec = timeArray[1]
+    const thing = Math.floor(parseInt(min) * 60) + parseInt(sec)
+    console.log(thing)
+    return thing
   }
 
   function makeTime (time) {
